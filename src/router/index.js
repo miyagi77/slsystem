@@ -25,18 +25,19 @@ const router = new VueRouter({
   routes
 })
 
-router.beforeEach((to, from, next) => {
-  const userInfo = getLocalStore("user");
-  if (to.matched.some(res => res.meta.requireAuth)) {
-    if (userInfo && userInfo.user && userInfo.token) { // 在去判断当前用户的信息
-      next(); // 如果是 直接渲染
-    } else {
-      next("/login"); // 否则跳转登录页面
-    }
-  } else {
-    next() // 不是就直接去渲染路由
-  }
-})
+//用户权限设置
+// router.beforeEach((to, from, next) => {
+//   const userInfo = getLocalStore("user");
+//   if (to.matched.some(res => res.meta.requireAuth)) {
+//     if (userInfo && userInfo.user && userInfo.token) { // 在去判断当前用户的信息
+//       next(); // 如果是 直接渲染
+//     } else {
+//       next("/login"); // 否则跳转登录页面
+//     }
+//   } else {
+//     next() // 不是就直接去渲染路由
+//   }
+// })
 
 
 export default router
