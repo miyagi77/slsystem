@@ -45,7 +45,7 @@ router.beforeEach((to, from, next) => {
     if (userInfo && userInfo.user && userInfo.token) { // 在去判断当前用户的信息  可修改条件  根据信息匹配需要跳转的页面
       next(); // 如果是 直接渲染
     } else {
-      next("/login"); // 否则跳转登录页面
+      next(); // 否则跳转登录页面
     }
   } else {
     next() // 不是就直接去渲染路由
